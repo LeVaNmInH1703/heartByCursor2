@@ -17,7 +17,7 @@
         position: absolute;
         width: 100px;
         height: 100px;
-        background: url(https://cdn4.iconfinder.com/data/icons/emojis-flat-pixel-perfect/64/emoji-03-256.png);
+        background: url(https://cdn0.iconfinder.com/data/icons/love-hand-drawn-color/64/heart-128.png);
         animation: animate linear 10s;
         pointer-events: none;
         background-size: cover;
@@ -41,7 +41,7 @@
   </body>
   <script>
     const divEl = document.querySelector("div");
-    divEl.addEventListener("touchmove", (event) => {
+    divEl.addEventListener("mousemove", (event) => {
       const x = event.offsetX;
       const y = event.offsetY;
       const spanEl = document.createElement("span");
@@ -51,6 +51,22 @@
       spanEl.style.height = size + "px";
       spanEl.style.width = size + "px";
       divEl.appendChild(spanEl);
+      setTimeout(function () {
+        spanEl.remove();
+      }, 5000);
+    });
+
+    const bodyEl = document.querySelector("div");
+    bodyEl.addEventListener("touchmove", (event) => {
+      const x = event.touches[0].clientX;
+      const y = event.touches[0].clientY;
+      const spanEl = document.createElement("span");
+      spanEl.style.left = x + "px";
+      spanEl.style.top = y + "px";
+      const size = Math.random() * 200;
+      spanEl.style.height = size + "px";
+      spanEl.style.width = size + "px";
+      bodyEl.appendChild(spanEl);
       setTimeout(function () {
         spanEl.remove();
       }, 5000);
