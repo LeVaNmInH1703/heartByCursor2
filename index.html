@@ -63,22 +63,20 @@
         }, 5000);
       });
     }
-    if ("touchmove") {
-      const bodyEl = document.querySelector("div");
-      bodyEl.addEventListener("touchmove", (event) => {
-        const x = event.touches[0].clientX;
-        const y = event.touches[0].clientY;
-        const spanEl = document.createElement("span");
-        spanEl.style.left = x + "px";
-        spanEl.style.top = y + "px";
-        const size = Math.random() * 200;
-        spanEl.style.height = size + "px";
-        spanEl.style.width = size + "px";
-        bodyEl.appendChild(spanEl);
-        setTimeout(function () {
-          spanEl.remove();
-        }, 3500);
-      });
-    }
+    const bodyEl = document.querySelector("div");
+    bodyEl.addEventListener("touchmove", (event) => {
+      const x = event.touches[0].clientX;
+      const y = event.touches[0].clientY;
+      const spanEl = document.createElement("span");
+      spanEl.style.left = x + "px";
+      spanEl.style.top = y + "px";
+      const size = Math.random() * 200;
+      spanEl.style.height = size + "px";
+      spanEl.style.width = size + "px";
+      bodyEl.appendChild(spanEl);
+      setTimeout(function () {
+        spanEl.remove();
+      }, 3500);
+    });
   </script>
 </html>
