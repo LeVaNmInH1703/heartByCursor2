@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      div {
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+        position: relative;
+      }
+      span {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: url(https://cdn4.iconfinder.com/data/icons/emojis-flat-pixel-perfect/64/emoji-03-256.png);
+        animation: animate linear 10s;
+        pointer-events: none;
+        background-size: cover;
+      }
+      @keyframes animate {
+        from {
+          opacity: 1;
+          transform: translate(-50%, -50%);
+          filter: hue-rotate(0);
+        }
+        to {
+          opacity: 0;
+          transform: translate(-50%, -5000%);
+          filter: hue-rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+  </body>
+  <script>
+    const divEl = document.querySelector("div");
+    divEl.addEventListener("touchmove", (event) => {
+      const x = event.offsetX;
+      const y = event.offsetY;
+      const spanEl = document.createElement("span");
+      spanEl.style.left = x + "px";
+      spanEl.style.top = y + "px";
+      const size = Math.random() * 200;
+      spanEl.style.height = size + "px";
+      spanEl.style.width = size + "px";
+      divEl.appendChild(spanEl);
+      setTimeout(function () {
+        spanEl.remove();
+      }, 5000);
+    });
+  </script>
+</html>
