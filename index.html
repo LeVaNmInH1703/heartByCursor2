@@ -62,7 +62,8 @@
           spanEl.remove();
         }, 5000);
       });
-    } else if ("touchmove") {
+    }
+    if ("touchmove") {
       const bodyEl = document.querySelector("div");
       bodyEl.addEventListener("touchmove", (event) => {
         const x = event.touches[0].clientX;
