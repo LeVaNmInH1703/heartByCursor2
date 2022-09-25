@@ -6,24 +6,19 @@
     <style>
       body {
         margin: 0;
-      }
-      div {
-        width: 100vw;
         height: 100vh;
         background-color: black;
         position: relative;
+        overflow: hidden;
       }
       span {
         position: absolute;
         width: 100px;
         height: 100px;
         background: url(https://cdn0.iconfinder.com/data/icons/love-hand-drawn-color/64/heart-128.png);
-        animation: animate linear 10s;
+        animation: animate linear 5s;
         pointer-events: none;
         background-size: cover;
-        justify-content: center;
-        align-items: center;
-        display: flex;
       }
       .text {
         color: #fff;
@@ -36,43 +31,39 @@
         }
         to {
           opacity: 0;
-          transform: translate(-50%, -5000%);
-          filter: hue-rotate(1500deg);
+          transform: translate(-50%, -1000%);
+          filter: hue-rotate(1440deg);
         }
       }
     </style>
   </head>
-  <body>
-    <div></div>
-  </body>
+  <body></body>
   <script>
     if ("mousemove") {
-      const divEl = document.querySelector("div");
+      const divEl = document.querySelector("body");
       divEl.addEventListener("mousemove", (event) => {
         const x = event.offsetX;
         const y = event.offsetY;
         const spanEl = document.createElement("span");
         spanEl.style.left = x + "px";
         spanEl.style.top = y + "px";
-        const size = Math.random() * 200;
+        const size = Math.random() * 250;
         spanEl.style.height = size + "px";
-        spanEl.style.width = size + "px";
         divEl.appendChild(spanEl);
         setTimeout(function () {
           spanEl.remove();
         }, 5000);
       });
     }
-    const bodyEl = document.querySelector("div");
+    const bodyEl = document.querySelector("body");
     bodyEl.addEventListener("touchmove", (event) => {
       const x = event.touches[0].clientX;
       const y = event.touches[0].clientY;
       const spanEl = document.createElement("span");
       spanEl.style.left = x + "px";
       spanEl.style.top = y + "px";
-      const size = Math.random() * 200;
+      const size = Math.random() * 150;
       spanEl.style.height = size + "px";
-      spanEl.style.width = size + "px";
       bodyEl.appendChild(spanEl);
       setTimeout(function () {
         spanEl.remove();
