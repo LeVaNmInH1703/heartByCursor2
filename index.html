@@ -8,17 +8,18 @@
         margin: 0;
         height: 100vh;
         background-color: black;
-        position: relative;
         overflow: hidden;
       }
       span {
         position: absolute;
         width: 100px;
         height: 100px;
-        background: url(https://cdn0.iconfinder.com/data/icons/love-hand-drawn-color/64/heart-128.png);
-        animation: animate linear 5s;
+        /* background: url(https://cdn0.iconfinder.com/data/icons/love-hand-drawn-color/64/heart-128.png); */
+        background: url(https://cdn4.iconfinder.com/data/icons/general-office/91/General_Office_54-512.png);
+        animation: animate linear 7s;
         pointer-events: none;
         background-size: cover;
+        transform: translate(-50%, -50%);
       }
       .text {
         color: #fff;
@@ -32,7 +33,7 @@
         to {
           opacity: 0;
           transform: translate(-50%, -1000%);
-          filter: hue-rotate(1440deg);
+          filter: hue-rotate(3000deg);
         }
       }
     </style>
@@ -41,7 +42,7 @@
   <script>
     if ("mousemove") {
       const divEl = document.querySelector("body");
-      divEl.addEventListener("mousemove", (event) => {
+      divEl.addEventListener("pointermove", (event) => {
         const x = event.offsetX;
         const y = event.offsetY;
         const spanEl = document.createElement("span");
@@ -49,6 +50,7 @@
         spanEl.style.top = y + "px";
         const size = Math.random() * 250;
         spanEl.style.height = size + "px";
+        spanEl.style.width = size + "px";
         divEl.appendChild(spanEl);
         setTimeout(function () {
           spanEl.remove();
@@ -64,6 +66,7 @@
       spanEl.style.top = y + "px";
       const size = Math.random() * 150;
       spanEl.style.height = size + "px";
+      spanEl.style.width = size + "px";
       bodyEl.appendChild(spanEl);
       setTimeout(function () {
         spanEl.remove();
